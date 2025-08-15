@@ -1,0 +1,11 @@
+llm:
+  base_url: "${OPENAI_API_BASE}"
+  model: "${AGENT_MODEL}" # Use environment variable for consistency
+  api_key: "${OPENAI_API_KEY}"
+  temperature: 0.7
+  top_p: 0.95
+  max_tokens: 1024
+
+healing:
+  token_env: "HEALING_SERVER_TOKEN"
+  port: 8000

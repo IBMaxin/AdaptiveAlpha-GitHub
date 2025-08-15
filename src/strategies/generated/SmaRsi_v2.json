@@ -1,0 +1,39 @@
+{
+  "strategy_name": "SmaRsi_v2",
+  "params": {
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "atr_len": 8,
+      "atr_max_pct": 0.0452,
+      "atr_min_pct": 0.0066,
+      "rsi_len": 20,
+      "rsi_max": 63,
+      "sma_fast_len": 15,
+      "sma_gap_min": 0.007,
+      "sma_slow_len": 47
+    },
+    "sell": {
+      "rsi_exit": 69
+    },
+    "protection": {},
+    "roi": {
+      "0": 0.051,
+      "25": 0.034,
+      "36": 0.017,
+      "47": 0
+    },
+    "stoploss": {
+      "stoploss": -0.067
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-08-12 05:00:19.832348+00:00"
+}

@@ -1,0 +1,87 @@
+# AdaptiveAlpha Trading System - Git Ignore Rules
+# 
+# This file protects sensitive trading information and development artifacts
+# from being accidentally committed to public repositories
+
+# Python Runtime and Dependencies
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment (we don't commit the actual venv)
+.venv/
+venv/
+ENV/
+env/
+
+# Trading Secrets and Configuration (CRITICAL SECURITY)
+.env
+*.key
+*.pem
+*secret*
+*password*
+*api_key*
+user_data/config.json
+config/live_trading.yaml
+
+# Development and Testing Artifacts
+*.log
+logs/
+temp/
+tmp/
+*.tmp
+*.bak
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Trading Data and Results
+user_data/data/
+user_data/backtest_results/
+data/cache/
+data/logs/
+*.csv
+*.json.bak
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Node.js (if any JavaScript tooling present)
+node_modules/
+npm-debug.log*
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+

@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adaptive-alpha"
+version = "1.0.0"
+description = "AdaptiveAlpha: Professional AI-Driven Trading System"
+authors = [{name = "Bobby Maxin", email = "your.email@example.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "freqtrade>=2024.12",
+    "pandas>=2.2.2",
+    "numpy>=1.26.4",
+    "TA-Lib>=0.4.28",
+    "pydantic>=2.7.1",
+    "PyYAML>=6.0.2",
+    "loguru>=0.7.2",
+    "requests",
+    "ccxt",
+    "technical",
+]
+
+[project.optional-dependencies]
+dev = [
+    "flake8>=7.1.1",
+    "black>=24.8.0",
+    "isort>=5.13.2",
+    "pytest>=8.3.2",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
+    "pytest-cov>=4.0",
+    "pytest-mock>=3.10",
+]
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | data
+  | \.mypy_cache
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "slow: Slow tests",
+]

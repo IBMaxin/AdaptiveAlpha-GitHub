@@ -1,0 +1,39 @@
+{
+  "strategy_name": "MicroSwingATRRSI_v1",
+  "params": {
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "atr_buy_mult": 0.645,
+      "atr_len": 15,
+      "rsi_buy_max": 49,
+      "rsi_len": 12,
+      "sma_fast_len": 28,
+      "sma_gap_min": 0.0162,
+      "sma_slow_len": 45
+    },
+    "sell": {
+      "atr_exit_mult": 1.011,
+      "rsi_exit": 71
+    },
+    "protection": {},
+    "roi": {
+      "0": 0.109,
+      "40": 0.034,
+      "66": 0.023,
+      "107": 0
+    },
+    "stoploss": {
+      "stoploss": -0.185
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-08-12 05:06:54.711251+00:00"
+}

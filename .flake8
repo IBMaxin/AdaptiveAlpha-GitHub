@@ -1,0 +1,9 @@
+[flake8]
+max-line-length = 120
+extend-ignore = E203, W503
+exclude = .venv, __pycache__, .git, data, runs, user_data/data
+per-file-ignores =
+    */__init__.py:F401
+    agents/self_loop_agent.py: E501
+    scripts/llm_orchestrator.py: E501
+    agents/loop_orchestrator.py: F841
