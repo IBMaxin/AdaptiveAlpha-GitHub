@@ -59,3 +59,4 @@ pip install -r requirements.txt
 # Configure environment
 cp .env.example .env
 # Edit .env with your configuration settings
+# First decent Project EVER :) 
