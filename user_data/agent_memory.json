@@ -1,0 +1,7 @@
+{
+  "test_key": "test_value",
+  "test_list": [
+    "item1"
+  ],
+  "persistence_test": "value1"
+}

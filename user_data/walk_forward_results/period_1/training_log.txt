@@ -1,0 +1,158 @@
+2025-08-15 18:27:42,453 - freqtrade - INFO - freqtrade 2024.12
+2025-08-15 18:27:43,321 - freqtrade.configuration.load_config - INFO - Using config: user_data/config.json ...
+2025-08-15 18:27:43,321 - freqtrade.loggers - INFO - Verbosity set to 1
+2025-08-15 18:27:43,321 - freqtrade.configuration.configuration - INFO - Using user-data directory: /home/bob/AdaptiveAlpha-GitHub/user_data ...
+2025-08-15 18:27:43,322 - freqtrade.configuration.configuration - INFO - Using data directory: /home/bob/AdaptiveAlpha-GitHub/user_data/data/binanceus ...
+2025-08-15 18:27:43,322 - freqtrade.configuration.configuration - INFO - timeframes --timeframes: ['1h']
+2025-08-15 18:27:43,322 - freqtrade.exchange.check_exchange - INFO - Checking exchange...
+2025-08-15 18:27:43,339 - freqtrade.exchange.check_exchange - INFO - Exchange "binanceus" is officially supported by the Freqtrade development team.
+2025-08-15 18:27:43,340 - freqtrade.configuration.configuration - INFO - Using pairlist from configuration.
+2025-08-15 18:27:43,340 - freqtrade.configuration.config_validation - WARNING - DEPRECATED: Using 'buy' and 'sell' for order_types is deprecated.Please migrate your order_types settings to use 'entry' and 'exit' wording.
+2025-08-15 18:27:43,340 - freqtrade.configuration.deprecated_settings - WARNING - DEPRECATED: The `order_types.emergencyexit` setting is deprecated and will be removed in the next versions of Freqtrade. Please use the `order_types.emergency_exit` setting in your configuration instead.
+2025-08-15 18:27:43,340 - freqtrade.configuration.config_validation - INFO - Validating configuration ...
+2025-08-15 18:27:43,356 - asyncio - DEBUG - Using selector: EpollSelector
+2025-08-15 18:27:43,357 - freqtrade.exchange.exchange - INFO - Instance is running with dry_run enabled
+2025-08-15 18:27:43,357 - freqtrade.exchange.exchange - INFO - Using CCXT 4.5.0
+2025-08-15 18:27:43,357 - freqtrade.exchange.exchange - INFO - Applying additional ccxt config: {'enableRateLimit': True, 'rateLimit': 200}
+2025-08-15 18:27:43,365 - freqtrade.exchange.exchange - INFO - Applying additional ccxt config: {'enableRateLimit': True, 'rateLimit': 200}
+2025-08-15 18:27:43,382 - freqtrade.exchange.exchange - INFO - Using Exchange "Binance US"
+2025-08-15 18:27:43,382 - freqtrade.resolvers.exchange_resolver - INFO - Using resolved exchange 'Binance'...
+2025-08-15 18:27:43,382 - freqtrade.exchange.exchange - INFO - Markets were not loaded. Loading them now..
+2025-08-15 18:27:43,382 - freqtrade.exchange.exchange - DEBUG - Performing scheduled market reload..
+2025-08-15 18:27:43,831 - freqtrade.data.history.history_utils - INFO - About to download pairs: ['BTC/USDT', 'ETH/USDT', 'ADA/USDT', 'SOL/USDT'], intervals: ['1h'] to /home/bob/AdaptiveAlpha-GitHub/user_data/data/binanceus
+2025-08-15 18:27:43,833 - freqtrade.data.history.history_utils - DEBUG - Downloading pair BTC/USDT, spot, interval 1h.
+2025-08-15 18:27:43,857 - freqtrade.data.converter.converter - DEBUG - Dropping last candle
+2025-08-15 18:27:43,858 - freqtrade.data.history.history_utils - INFO - Download history data for "BTC/USDT", 1h, spot and store in /home/bob/AdaptiveAlpha-GitHub/user_data/data/binanceus. From 2025-08-15T21:00:00 to now
+2025-08-15 18:27:43,858 - freqtrade.data.history.history_utils - DEBUG - Current Start: 2025-07-17 01:00:00
+2025-08-15 18:27:43,858 - freqtrade.data.history.history_utils - DEBUG - Current End: 2025-08-15 21:00:00
+2025-08-15 18:27:43,858 - freqtrade.exchange.exchange - DEBUG - one_call: 3600000000 msecs (a month ago)
+2025-08-15 18:27:43,858 - freqtrade.exchange.exchange - DEBUG - Fetching pair BTC/USDT, spot, interval 1h, since 1755291600000 (2025-08-15T21:00:00+00:00) ...
+2025-08-15 18:27:44,769 - freqtrade.exchange.exchange - DEBUG - Done fetching pair BTC/USDT, spot interval 1h...
+2025-08-15 18:27:44,769 - freqtrade.exchange.exchange - DEBUG - Downloaded data for BTC/USDT from ccxt with length 5.
+2025-08-15 18:27:44,769 - freqtrade.data.converter.converter - DEBUG - Converting candle (OHLCV) data to dataframe for pair BTC/USDT.
+2025-08-15 18:27:44,773 - freqtrade.data.converter.converter - DEBUG - Dropping last candle
+2025-08-15 18:27:44,773 - freqtrade.data.history.history_utils - INFO - Downloaded data for BTC/USDT with length 4.
+2025-08-15 18:27:44,775 - freqtrade.data.history.history_utils - DEBUG - New Start: 2025-07-17 01:00:00
+2025-08-15 18:27:44,775 - freqtrade.data.history.history_utils - DEBUG - New End: 2025-08-16 00:00:00
+2025-08-15 18:27:44,778 - freqtrade.data.history.history_utils - DEBUG - Downloading pair ETH/USDT, spot, interval 1h.
+2025-08-15 18:27:44,785 - freqtrade.data.converter.converter - DEBUG - Dropping last candle
+2025-08-15 18:27:44,785 - freqtrade.data.history.history_utils - INFO - Download history data for "ETH/USDT", 1h, spot and store in /home/bob/AdaptiveAlpha-GitHub/user_data/data/binanceus. From 2025-08-15T21:00:00 to now
+2025-08-15 18:27:44,785 - freqtrade.data.history.history_utils - DEBUG - Current Start: 2025-07-17 01:00:00
+2025-08-15 18:27:44,785 - freqtrade.data.history.history_utils - DEBUG - Current End: 2025-08-15 21:00:00
+2025-08-15 18:27:44,785 - freqtrade.exchange.exchange - DEBUG - one_call: 3600000000 msecs (a month ago)
+2025-08-15 18:27:44,785 - freqtrade.exchange.exchange - DEBUG - Fetching pair ETH/USDT, spot, interval 1h, since 1755291600000 (2025-08-15T21:00:00+00:00) ...
+2025-08-15 18:27:44,992 - freqtrade.exchange.exchange - DEBUG - Done fetching pair ETH/USDT, spot interval 1h...
+2025-08-15 18:27:44,992 - freqtrade.exchange.exchange - DEBUG - Downloaded data for ETH/USDT from ccxt with length 5.
+2025-08-15 18:27:44,992 - freqtrade.data.converter.converter - DEBUG - Converting candle (OHLCV) data to dataframe for pair ETH/USDT.
+2025-08-15 18:27:44,996 - freqtrade.data.converter.converter - DEBUG - Dropping last candle
+2025-08-15 18:27:44,996 - freqtrade.data.history.history_utils - INFO - Downloaded data for ETH/USDT with length 4.
+2025-08-15 18:27:44,998 - freqtrade.data.history.history_utils - DEBUG - New Start: 2025-07-17 01:00:00
+2025-08-15 18:27:44,998 - freqtrade.data.history.history_utils - DEBUG - New End: 2025-08-16 00:00:00
+2025-08-15 18:27:44,999 - freqtrade.data.history.history_utils - DEBUG - Downloading pair ADA/USDT, spot, interval 1h.
+2025-08-15 18:27:45,006 - freqtrade.data.converter.converter - DEBUG - Dropping last candle
+2025-08-15 18:27:45,006 - freqtrade.data.history.history_utils - INFO - Download history data for "ADA/USDT", 1h, spot and store in /home/bob/AdaptiveAlpha-GitHub/user_data/data/binanceus. From 2025-08-15T21:00:00 to now
+2025-08-15 18:27:45,006 - freqtrade.data.history.history_utils - DEBUG - Current Start: 2025-07-17 01:00:00
+2025-08-15 18:27:45,006 - freqtrade.data.history.history_utils - DEBUG - Current End: 2025-08-15 21:00:00
+2025-08-15 18:27:45,006 - freqtrade.exchange.exchange - DEBUG - one_call: 3600000000 msecs (a month ago)
+2025-08-15 18:27:45,006 - freqtrade.exchange.exchange - DEBUG - Fetching pair ADA/USDT, spot, interval 1h, since 1755291600000 (2025-08-15T21:00:00+00:00) ...
+2025-08-15 18:27:45,182 - freqtrade.exchange.exchange - DEBUG - Done fetching pair ADA/USDT, spot interval 1h...
+2025-08-15 18:27:45,182 - freqtrade.exchange.exchange - DEBUG - Downloaded data for ADA/USDT from ccxt with length 5.
+2025-08-15 18:27:45,182 - freqtrade.data.converter.converter - DEBUG - Converting candle (OHLCV) data to dataframe for pair ADA/USDT.
+2025-08-15 18:27:45,185 - freqtrade.data.converter.converter - DEBUG - Dropping last candle
+2025-08-15 18:27:45,185 - freqtrade.data.history.history_utils - INFO - Downloaded data for ADA/USDT with length 4.
+2025-08-15 18:27:45,187 - freqtrade.data.history.history_utils - DEBUG - New Start: 2025-07-17 01:00:00
+2025-08-15 18:27:45,187 - freqtrade.data.history.history_utils - DEBUG - New End: 2025-08-16 00:00:00
+2025-08-15 18:27:45,189 - freqtrade.data.history.history_utils - DEBUG - Downloading pair SOL/USDT, spot, interval 1h.
+2025-08-15 18:27:45,194 - freqtrade.data.converter.converter - DEBUG - Dropping last candle
+2025-08-15 18:27:45,195 - freqtrade.data.history.history_utils - INFO - Download history data for "SOL/USDT", 1h, spot and store in /home/bob/AdaptiveAlpha-GitHub/user_data/data/binanceus. From 2025-08-15T21:00:00 to now
+2025-08-15 18:27:45,195 - freqtrade.data.history.history_utils - DEBUG - Current Start: 2025-07-17 01:00:00
+2025-08-15 18:27:45,195 - freqtrade.data.history.history_utils - DEBUG - Current End: 2025-08-15 21:00:00
+2025-08-15 18:27:45,195 - freqtrade.exchange.exchange - DEBUG - one_call: 3600000000 msecs (a month ago)
+2025-08-15 18:27:45,195 - freqtrade.exchange.exchange - DEBUG - Fetching pair SOL/USDT, spot, interval 1h, since 1755291600000 (2025-08-15T21:00:00+00:00) ...
+2025-08-15 18:27:45,371 - freqtrade.exchange.exchange - DEBUG - Done fetching pair SOL/USDT, spot interval 1h...
+2025-08-15 18:27:45,371 - freqtrade.exchange.exchange - DEBUG - Downloaded data for SOL/USDT from ccxt with length 5.
+2025-08-15 18:27:45,371 - freqtrade.data.converter.converter - DEBUG - Converting candle (OHLCV) data to dataframe for pair SOL/USDT.
+2025-08-15 18:27:45,375 - freqtrade.data.converter.converter - DEBUG - Dropping last candle
+2025-08-15 18:27:45,375 - freqtrade.data.history.history_utils - INFO - Downloaded data for SOL/USDT with length 4.
+2025-08-15 18:27:45,377 - freqtrade.data.history.history_utils - DEBUG - New Start: 2025-07-17 01:00:00
+2025-08-15 18:27:45,377 - freqtrade.data.history.history_utils - DEBUG - New End: 2025-08-16 00:00:00
+Timeframe            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 100% • 0:00:00 • 0:00:00
+Downloading SOL/USDT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 100% • 0:00:01 • 0:00:00
+2025-08-15 18:27:45,381 - freqtrade.exchange.exchange - DEBUG - Exchange object destroyed, closing async loop
+2025-08-15 18:27:45,381 - freqtrade.exchange.exchange - DEBUG - Closing async ccxt session.
+[WARN] MCP Memory Client not available - using fallback
+[MEMORY] Loaded 0 short-term and 0 long-term memories
+[MEMORY] Loaded 0 backtest results
+
+=== LOOP 1/5 ===
+[LLM] Proposed minimal_roi[0]=0.015, stoploss=-0.08
+[BT] .venv/bin/freqtrade backtesting -c user_data/config.json --strategy SimpleAlwaysBuySell --strategy-path strategies --timeframe 1h --timerange 20220101-20220401 --cache none -v --export trades
+
+ at 2025-07-17 01:00:00
+2025-08-15 18:27:50,162 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for ADA/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:27:50,165 - freqtrade.data.history.datahandlers.idatahandler - WARNING - SOL/USDT, spot, 1h, data starts at 2025-07-17 01:00:00
+2025-08-15 18:27:50,166 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for SOL/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:27:50,166 - freqtrade - ERROR - No data found. Terminating.
+2025-08-15 18:27:50,222 - freqtrade.exchange.exchange - DEBUG - Exchange object destroyed, closing async loop
+2025-08-15 18:27:50,222 - freqtrade.exchange.exchange - DEBUG - Closing async ccxt session.
+
+[WARN] Backtest failed; continuing.
+
+=== LOOP 2/5 ===
+[LLM] Proposed minimal_roi[0]=0.013, stoploss=-0.07
+[BT] .venv/bin/freqtrade backtesting -c user_data/config.json --strategy SimpleAlwaysBuySell --strategy-path strategies --timeframe 1h --timerange 20220101-20220401 --cache none -v --export trades
+
+ at 2025-07-17 01:00:00
+2025-08-15 18:27:54,337 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for ADA/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:27:54,341 - freqtrade.data.history.datahandlers.idatahandler - WARNING - SOL/USDT, spot, 1h, data starts at 2025-07-17 01:00:00
+2025-08-15 18:27:54,342 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for SOL/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:27:54,342 - freqtrade - ERROR - No data found. Terminating.
+2025-08-15 18:27:54,399 - freqtrade.exchange.exchange - DEBUG - Exchange object destroyed, closing async loop
+2025-08-15 18:27:54,399 - freqtrade.exchange.exchange - DEBUG - Closing async ccxt session.
+
+[WARN] Backtest failed; continuing.
+
+=== LOOP 3/5 ===
+[LLM] Proposed minimal_roi[0]=0.013, stoploss=-0.07
+[BT] .venv/bin/freqtrade backtesting -c user_data/config.json --strategy SimpleAlwaysBuySell --strategy-path strategies --timeframe 1h --timerange 20220101-20220401 --cache none -v --export trades
+
+ at 2025-07-17 01:00:00
+2025-08-15 18:27:58,079 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for ADA/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:27:58,083 - freqtrade.data.history.datahandlers.idatahandler - WARNING - SOL/USDT, spot, 1h, data starts at 2025-07-17 01:00:00
+2025-08-15 18:27:58,084 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for SOL/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:27:58,084 - freqtrade - ERROR - No data found. Terminating.
+2025-08-15 18:27:58,141 - freqtrade.exchange.exchange - DEBUG - Exchange object destroyed, closing async loop
+2025-08-15 18:27:58,141 - freqtrade.exchange.exchange - DEBUG - Closing async ccxt session.
+
+[WARN] Backtest failed; continuing.
+
+=== LOOP 4/5 ===
+[LLM] Proposed minimal_roi[0]=0.017, stoploss=-0.07
+[BT] .venv/bin/freqtrade backtesting -c user_data/config.json --strategy SimpleAlwaysBuySell --strategy-path strategies --timeframe 1h --timerange 20220101-20220401 --cache none -v --export trades
+
+ at 2025-07-17 01:00:00
+2025-08-15 18:28:00,720 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for ADA/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:28:00,724 - freqtrade.data.history.datahandlers.idatahandler - WARNING - SOL/USDT, spot, 1h, data starts at 2025-07-17 01:00:00
+2025-08-15 18:28:00,725 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for SOL/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:28:00,725 - freqtrade - ERROR - No data found. Terminating.
+2025-08-15 18:28:00,788 - freqtrade.exchange.exchange - DEBUG - Exchange object destroyed, closing async loop
+2025-08-15 18:28:00,788 - freqtrade.exchange.exchange - DEBUG - Closing async ccxt session.
+
+[WARN] Backtest failed; continuing.
+
+=== LOOP 5/5 ===
+[LLM] Proposed minimal_roi[0]=0.015, stoploss=-0.07
+[BT] .venv/bin/freqtrade backtesting -c user_data/config.json --strategy SimpleAlwaysBuySell --strategy-path strategies --timeframe 1h --timerange 20220101-20220401 --cache none -v --export trades
+
+ at 2025-07-17 01:00:00
+2025-08-15 18:28:04,427 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for ADA/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:28:04,431 - freqtrade.data.history.datahandlers.idatahandler - WARNING - SOL/USDT, spot, 1h, data starts at 2025-07-17 01:00:00
+2025-08-15 18:28:04,432 - freqtrade.data.history.datahandlers.idatahandler - WARNING - No history for SOL/USDT, spot, 1h found. Use `freqtrade download-data` to download the data
+2025-08-15 18:28:04,432 - freqtrade - ERROR - No data found. Terminating.
+2025-08-15 18:28:04,488 - freqtrade.exchange.exchange - DEBUG - Exchange object destroyed, closing async loop
+2025-08-15 18:28:04,488 - freqtrade.exchange.exchange - DEBUG - Closing async ccxt session.
+
+[WARN] Backtest failed; continuing.
+
+[SUMMARY] Completed 5 loops with memory enabled
+[MEMORY] Final state: 0 memories, 0 backtest records

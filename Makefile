@@ -33,7 +33,7 @@ endef
 .PHONY: help guard tools data list bt bt-range paper fix-config agent-error agent-error-apply clean-data show
 .PHONY: agent-loop-5 agent-loop-1 llm-orchestrate update-data clean-results local-learn-loop
 .PHONY: agent-help agent-prompt-sample llm-prompt-sample venv install dev-install lint fix type test
-.PHONY: start stop status package report battle
+.PHONY: start stop status package report battle agent-full realistic-test walk-forward-validation simple-validation
 
 help:
 	@echo "Targets:"
@@ -55,7 +55,11 @@ help:
 	@echo "  agent-error       ErrorMedic (dry-run): analyze an error log"
 	@echo "  agent-error-apply ErrorMedic: apply patches"
 	@echo "  clean-data        Remove downloaded OHLCV"
-	@echo "  agent-loop-5/1    Self-improving agent loop"
+	@echo "  agent-loop-5/1    Self-improving agent loop (all features enabled)"
+	@echo "  agent-full        Run agent with all features enabled (default)"
+	@echo "  realistic-test    Setup and run realistic walk-forward validation"
+	@echo "  simple-validation Run simple train/test validation (limited data)"
+	@echo "  walk-forward-validation  Run full walk-forward validation"
 	@echo "  llm-orchestrate   Run LLM orchestrator script"
 	@echo "  update-data       Fetch and update data from Kraken"
 	@echo "  clean-results     Remove ML/backtest results"
@@ -194,14 +198,13 @@ show:
 # ===== Agent loops & LLM helpers =====
 
 agent-loop-5:
-	PYTHONPATH=. $(PYBIN) -m agents.self_loop_agent \
-	  --spec "Start with a simple guaranteed-trade strategy (SimpleAlwaysBuySell) for BTC/USDT, 1h timeframe. Each loop, mutate or improve the strategy logic to increase trade quality, diversity, and profit. Log all trades and results for ML. Use clear comments and robust logic." \
-	  --config $(CONFIG) --max-loops 5
+	bash scripts/utils/auto_start_all.sh \
+	  --spec "Start with a simple guaranteed-trade strategy (SimpleAlwaysBuySell) for BTC/USDT, 1h timeframe. Each loop, mutate or improve the strategy logic to increase trade quality, diversity, and profit. Log all trades and results for ML. Use clear comments and robust logic."
 
 agent-loop-1:
-	PYTHONPATH=. $(PYBIN) -m agents.self_loop_agent \
+	bash scripts/utils/auto_start_all.sh \
 	  --spec "Minimal robust Freqtrade strategy for BTC/USDT, 1h timeframe, with clear logic and comments" \
-	  --config $(CONFIG) --max-loops 1
+	  --max-loops 1
 
 llm-orchestrate:
 	$(PYBIN) scripts/llm_orchestrator.py
@@ -213,15 +216,30 @@ clean-results:
 	rm -f user_data/ml_trades_book.csv user_data/learning_log.csv user_data/backtest_results/*.log
 
 local-learn-loop:
-	PYTHONPATH=. $(PYBIN) -m agents.self_loop_agent \
-	  --spec "Fully local, self-updating Freqtrade agent loop. Use SimpleAlwaysBuySell as baseline for BTC/USDT, 1h. Each loop, mutate or improve the strategy logic, log all trades and results for ML, and update the learning log and strategy files as needed. No cloud, no remote calls. All logic and logs are local and persistent." \
-	  --config $(CONFIG) --max-loops 5
+	bash scripts/utils/auto_start_all.sh \
+	  --spec "Fully local, self-updating Freqtrade agent loop. Use SimpleAlwaysBuySell as baseline for BTC/USDT, 1h. Each loop, mutate or improve the strategy logic, log all trades and results for ML, and update the learning log and strategy files as needed. No cloud, no remote calls. All logic and logs are local and persistent."
 	@echo "[INFO] Local learning loop complete. Logs and strategies updated."
 
 # === AGENT HELPER TARGETS ===
 
+agent-full:
+	bash scripts/utils/auto_start_all.sh
+
+realistic-test:
+	bash scripts/utils/realistic_test_runner.sh
+
+simple-validation:
+	bash scripts/utils/simple_validation.sh
+
+walk-forward-validation:
+	bash scripts/utils/run_walk_forward_validation.sh
+
 agent-help:
 	@echo "Agent Automation Targets:"
+	@echo "  make agent-full           # Run agent with all features enabled (max-loops=5, verbose=2, memory=on, export-trades=on)"
+	@echo "  make realistic-test       # Setup comprehensive validation (auto-detects data range)"
+	@echo "  make simple-validation    # Simple train/test split (works with limited data)"
+	@echo "  make walk-forward-validation # Run full walk-forward validation on all periods"
 	@echo "  make agent-loop-5         # Run 5-cycle agent loop with SimpleAlwaysBuySell"
 	@echo "  make agent-loop-1         # Run single agent loop for quick test"
 	@echo "  make local-learn-loop     # Fully local, self-updating, learning agent loop"

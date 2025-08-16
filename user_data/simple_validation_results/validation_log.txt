@@ -1,0 +1,122 @@
+2025-08-15 18:55:09,953 - freqtrade - INFO - freqtrade 2024.12
+2025-08-15 18:55:10,780 - freqtrade.configuration.load_config - INFO - Using config: user_data/config.json ...
+2025-08-15 18:55:10,780 - freqtrade.loggers - INFO - Verbosity set to 0
+2025-08-15 18:55:10,780 - freqtrade.configuration.configuration - INFO - Using additional Strategy lookup path: strategies
+2025-08-15 18:55:10,780 - freqtrade.configuration.configuration - INFO - Parameter -i/--timeframe detected ... Using timeframe: 1h ...
+2025-08-15 18:55:10,780 - freqtrade.configuration.configuration - INFO - Using max_open_trades: 3 ...
+2025-08-15 18:55:10,780 - freqtrade.configuration.configuration - INFO - Parameter --timerange detected: 20250809-20250815 ...
+2025-08-15 18:55:10,780 - freqtrade.configuration.configuration - INFO - Using user-data directory: /home/bob/AdaptiveAlpha-GitHub/user_data ...
+2025-08-15 18:55:10,780 - freqtrade.configuration.configuration - INFO - Using data directory: /home/bob/AdaptiveAlpha-GitHub/user_data/data/binanceus ...
+2025-08-15 18:55:10,780 - freqtrade.configuration.configuration - INFO - Overriding timeframe with Command line argument
+2025-08-15 18:55:10,781 - freqtrade.configuration.configuration - INFO - Parameter --export detected: trades ...
+2025-08-15 18:55:10,781 - freqtrade.configuration.configuration - INFO - Parameter --cache=none detected ...
+2025-08-15 18:55:10,781 - freqtrade.configuration.configuration - INFO - Filter trades by timerange: 20250809-20250815
+2025-08-15 18:55:10,781 - freqtrade.exchange.check_exchange - INFO - Checking exchange...
+2025-08-15 18:55:10,798 - freqtrade.exchange.check_exchange - INFO - Exchange "binanceus" is officially supported by the Freqtrade development team.
+2025-08-15 18:55:10,798 - freqtrade.configuration.configuration - INFO - Using pairlist from configuration.
+2025-08-15 18:55:10,798 - freqtrade.configuration.config_validation - WARNING - DEPRECATED: Using 'buy' and 'sell' for order_types is deprecated.Please migrate your order_types settings to use 'entry' and 'exit' wording.
+2025-08-15 18:55:10,798 - freqtrade.configuration.deprecated_settings - WARNING - DEPRECATED: The `order_types.emergencyexit` setting is deprecated and will be removed in the next versions of Freqtrade. Please use the `order_types.emergency_exit` setting in your configuration instead.
+2025-08-15 18:55:10,798 - freqtrade.configuration.config_validation - INFO - Validating configuration ...
+2025-08-15 18:55:10,799 - freqtrade.commands.optimize_commands - INFO - Starting freqtrade in Backtesting mode
+2025-08-15 18:55:10,799 - freqtrade.exchange.exchange - INFO - Instance is running with dry_run enabled
+2025-08-15 18:55:10,799 - freqtrade.exchange.exchange - INFO - Using CCXT 4.5.0
+2025-08-15 18:55:10,800 - freqtrade.exchange.exchange - INFO - Applying additional ccxt config: {'enableRateLimit': True, 'rateLimit': 200}
+2025-08-15 18:55:10,807 - freqtrade.exchange.exchange - INFO - Applying additional ccxt config: {'enableRateLimit': True, 'rateLimit': 200}
+2025-08-15 18:55:10,824 - freqtrade.exchange.exchange - INFO - Using Exchange "Binance US"
+2025-08-15 18:55:11,289 - freqtrade.resolvers.exchange_resolver - INFO - Using resolved exchange 'Binance'...
+2025-08-15 18:55:11,289 - freqtrade.resolvers.iresolver - INFO - Using resolved strategy SimpleAlwaysBuySell from '/home/bob/AdaptiveAlpha-GitHub/strategies/SimpleAlwaysBuySell.py'...
+2025-08-15 18:55:11,290 - freqtrade.strategy.hyper - INFO - Found no parameter file.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'minimal_roi' with value in config file: {'0': 0.25, '240': 0.15, '720': 0.1, '1440': 0.05}.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'timeframe' with value in config file: 1h.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'stoploss' with value in config file: -0.12.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'trailing_stop' with value in config file: True.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'trailing_stop_positive' with value in config file: 0.05.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'trailing_stop_positive_offset' with value in config file: 0.08.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'trailing_only_offset_is_reached' with value in config file: True.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'process_only_new_candles' with value in config file: False.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'order_types' with value in config file: {'entry': 'limit', 'exit': 'limit', 'stoploss': 'market', 'stoploss_on_exchange': False, 'stoploss_on_exchange_interval': 60, 'emergency_exit': 'market'}.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'order_time_in_force' with value in config file: {'entry': 'gtc', 'exit': 'gtc'}.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'stake_currency' with value in config file: USDT.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'stake_amount' with value in config file: 125.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Override strategy 'max_open_trades' with value in config file: 3.
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using minimal_roi: {'0': 0.25, '240': 0.15, '720': 0.1, '1440': 0.05}
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using timeframe: 1h
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using stoploss: -0.12
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using trailing_stop: True
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using trailing_stop_positive: 0.05
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using trailing_stop_positive_offset: 0.08
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using trailing_only_offset_is_reached: True
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using use_custom_stoploss: False
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using process_only_new_candles: False
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using order_types: {'entry': 'limit', 'exit': 'limit', 'stoploss': 'market', 'stoploss_on_exchange': False, 'stoploss_on_exchange_interval': 60, 'emergency_exit': 'market'}
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using order_time_in_force: {'entry': 'gtc', 'exit': 'gtc'}
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using stake_currency: USDT
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using stake_amount: 125
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using startup_candle_count: 10
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using use_exit_signal: True
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using exit_profit_only: False
+2025-08-15 18:55:11,290 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using ignore_roi_if_entry_signal: False
+2025-08-15 18:55:11,291 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using exit_profit_offset: 0.0
+2025-08-15 18:55:11,291 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using disable_dataframe_checks: False
+2025-08-15 18:55:11,291 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using ignore_buying_expired_candle_after: 0
+2025-08-15 18:55:11,291 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using position_adjustment_enable: False
+2025-08-15 18:55:11,291 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using max_entry_position_adjustment: -1
+2025-08-15 18:55:11,291 - freqtrade.resolvers.strategy_resolver - INFO - Strategy using max_open_trades: 3
+2025-08-15 18:55:11,291 - freqtrade.configuration.config_validation - INFO - Validating configuration ...
+2025-08-15 18:55:11,295 - freqtrade.resolvers.iresolver - INFO - Using resolved pairlist StaticPairList from '/home/bob/AdaptiveAlpha-GitHub/.venv/lib/python3.11/site-packages/freqtrade/plugins/pairlist/StaticPairList.py'...
+2025-08-15 18:55:11,298 - freqtrade.optimize.backtesting - INFO - Using fee 0.1000% - worst case fee from exchange (lowest tier).
+2025-08-15 18:55:11,299 - freqtrade.data.history.history_utils - INFO - Using indicator startup period: 10 ...
+2025-08-15 18:55:11,348 - freqtrade.optimize.backtesting - INFO - Loading data from 2025-08-08 14:00:00 up to 2025-08-15 00:00:00 (6 days).
+2025-08-15 18:55:11,348 - freqtrade.optimize.backtesting - INFO - Dataload complete. Calculating indicators
+2025-08-15 18:55:11,348 - freqtrade.optimize.backtesting - INFO - Running backtesting for Strategy SimpleAlwaysBuySell
+2025-08-15 18:55:11,348 - freqtrade.strategy.hyper - INFO - No params for buy found, using default values.
+2025-08-15 18:55:11,348 - freqtrade.strategy.hyper - INFO - No params for sell found, using default values.
+2025-08-15 18:55:11,348 - freqtrade.strategy.hyper - INFO - No params for protection found, using default values.
+2025-08-15 18:55:11,351 - freqtrade.optimize.backtesting - INFO - Backtesting with data from 2025-08-09 00:00:00 up to 2025-08-15 00:00:00 (6 days).
+2025-08-15 18:55:11,384 - freqtrade.misc - INFO - dumping json to "/home/bob/AdaptiveAlpha-GitHub/user_data/backtest_results/backtest-result-2025-08-15_18-55-11.meta.json"
+2025-08-15 18:55:11,385 - freqtrade.misc - INFO - dumping json to "/home/bob/AdaptiveAlpha-GitHub/user_data/backtest_results/backtest-result-2025-08-15_18-55-11.json"
+2025-08-15 18:55:11,385 - freqtrade.misc - INFO - dumping json to "/home/bob/AdaptiveAlpha-GitHub/user_data/backtest_results/.last_result.json"
+Result for strategy SimpleAlwaysBuySell
+                                             BACKTESTING REPORT                                              
+┏━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃     Pair ┃ Trades ┃ Avg Profit % ┃ Tot Profit USDT ┃ Tot Profit % ┃ Avg Duration ┃  Win  Draw  Loss  Win% ┃
+┡━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ BTC/USDT │      0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+│ ETH/USDT │      0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+│ ADA/USDT │      0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+│ SOL/USDT │      0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+│    TOTAL │      0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+└──────────┴────────┴──────────────┴─────────────────┴──────────────┴──────────────┴────────────────────────┘
+                                         LEFT OPEN TRADES REPORT                                          
+┏━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  Pair ┃ Trades ┃ Avg Profit % ┃ Tot Profit USDT ┃ Tot Profit % ┃ Avg Duration ┃  Win  Draw  Loss  Win% ┃
+┡━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ TOTAL │      0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+└───────┴────────┴──────────────┴─────────────────┴──────────────┴──────────────┴────────────────────────┘
+                                                ENTER TAG STATS                                                
+┏━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Enter Tag ┃ Entries ┃ Avg Profit % ┃ Tot Profit USDT ┃ Tot Profit % ┃ Avg Duration ┃  Win  Draw  Loss  Win% ┃
+┡━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━┩
+│     TOTAL │       0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+└───────────┴─────────┴──────────────┴─────────────────┴──────────────┴──────────────┴────────────────────────┘
+                                               EXIT REASON STATS                                               
+┏━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Exit Reason ┃ Exits ┃ Avg Profit % ┃ Tot Profit USDT ┃ Tot Profit % ┃ Avg Duration ┃  Win  Draw  Loss  Win% ┃
+┡━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━┩
+│       TOTAL │     0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+└─────────────┴───────┴──────────────┴─────────────────┴──────────────┴──────────────┴────────────────────────┘
+                                                      MIXED TAG STATS                                                       
+┏━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Enter Tag ┃ Exit Reason ┃ Trades ┃ Avg Profit % ┃ Tot Profit USDT ┃ Tot Profit % ┃ Avg Duration ┃  Win  Draw  Loss  Win% ┃
+┡━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━┩
+│     TOTAL │             │      0 │          0.0 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │
+└───────────┴─────────────┴────────┴──────────────┴─────────────────┴──────────────┴──────────────┴────────────────────────┘
+No trades made. Your starting balance was 500 USDT, and your stake was 125 USDT.
+
+Backtested 2025-08-09 00:00:00 -> 2025-08-15 00:00:00 | Max open trades : 3
+                                                            STRATEGY SUMMARY                                                            
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃            Strategy ┃ Trades ┃ Avg Profit % ┃ Tot Profit USDT ┃ Tot Profit % ┃ Avg Duration ┃  Win  Draw  Loss  Win% ┃      Drawdown ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ SimpleAlwaysBuySell │      0 │         0.00 │           0.000 │          0.0 │         0:00 │    0     0     0     0 │ 0 USDT  0.00% │
+└─────────────────────┴────────┴──────────────┴─────────────────┴──────────────┴──────────────┴────────────────────────┴───────────────┘
