@@ -34,6 +34,8 @@ endef
 .PHONY: agent-loop-5 agent-loop-1 llm-orchestrate update-data clean-results local-learn-loop
 .PHONY: agent-help agent-prompt-sample llm-prompt-sample venv install dev-install lint fix type test
 .PHONY: start stop status package report battle agent-full realistic-test walk-forward-validation simple-validation
+.PHONY: data-status data-append data-refresh data-check data-clean data-analyze data-2024 data-range
+.PHONY: data-2024-1m data-2024-5m data-2024-15m data-2024-1h data-2024-4h data-2024-1d
 
 help:
 	@echo "Targets:"
@@ -60,6 +62,17 @@ help:
 	@echo "  realistic-test    Setup and run realistic walk-forward validation"
 	@echo "  simple-validation Run simple train/test validation (limited data)"
 	@echo "  walk-forward-validation  Run full walk-forward validation"
+	@echo "  data-status       Show current data status and coverage"
+	@echo "  data-append       Download and append new data (default)"
+	@echo "  data-refresh      Erase and download fresh data"
+	@echo "  data-check        Check existing data without downloading"
+	@echo "  data-clean        Remove all downloaded data"
+	@echo "  data-analyze      Analyze data quality and gaps"
+	@echo "  data-2024         Download full year 2024 data (1h timeframe)"
+	@echo "  data-2024-5m      Download 2024 data with 5-minute candles"
+	@echo "  data-2024-15m     Download 2024 data with 15-minute candles"
+	@echo "  data-2024-1h      Download 2024 data with 1-hour candles"
+	@echo "  data-range        Download custom date range (START=YYYYMMDD END=YYYYMMDD)"
 	@echo "  llm-orchestrate   Run LLM orchestrator script"
 	@echo "  update-data       Fetch and update data from Kraken"
 	@echo "  clean-results     Remove ML/backtest results"
@@ -234,12 +247,81 @@ simple-validation:
 walk-forward-validation:
 	bash scripts/utils/run_walk_forward_validation.sh
 
+# Data management targets
+data-status:
+	bash scripts/utils/data_manager.sh status
+
+data-append:
+	bash scripts/utils/data_manager.sh append
+
+data-refresh:
+	bash scripts/utils/data_manager.sh refresh
+
+data-check:
+	bash scripts/utils/data_manager.sh check
+
+data-clean:
+	bash scripts/utils/data_manager.sh clean
+
+data-analyze:
+	bash scripts/utils/data_manager.sh analyze
+
+# Special data ranges
+data-2024:
+	bash scripts/utils/download_2024_data.sh
+
+# Timeframe-specific downloads
+data-2024-1m:
+	bash scripts/utils/download_2024_timeframe.sh 1m
+
+data-2024-5m:
+	bash scripts/utils/download_2024_timeframe.sh 5m
+
+data-2024-15m:
+	bash scripts/utils/download_2024_timeframe.sh 15m
+
+data-2024-1h:
+	bash scripts/utils/download_2024_timeframe.sh 1h
+
+data-2024-4h:
+	bash scripts/utils/download_2024_timeframe.sh 4h
+
+data-2024-1d:
+	bash scripts/utils/download_2024_timeframe.sh 1d
+
+data-range:
+	@echo "Usage: make data-range START=YYYYMMDD END=YYYYMMDD"
+	@echo "Example: make data-range START=20240101 END=20250101"
+	@if [ -n "$(START)" ] && [ -n "$(END)" ]; then \
+		bash scripts/utils/data_manager.sh download $(START) $(END); \
+	else \
+		echo "Error: Both START and END dates required"; \
+	fi
+
 agent-help:
 	@echo "Agent Automation Targets:"
 	@echo "  make agent-full           # Run agent with all features enabled (max-loops=5, verbose=2, memory=on, export-trades=on)"
 	@echo "  make realistic-test       # Setup comprehensive validation (auto-detects data range)"
 	@echo "  make simple-validation    # Simple train/test split (works with limited data)"
 	@echo "  make walk-forward-validation # Run full walk-forward validation on all periods"
+	@echo ""
+	@echo "Data Management:"
+	@echo "  make data-status          # Show current data status and file sizes"
+	@echo "  make data-append          # Download new data (default, safe)"
+	@echo "  make data-refresh         # Erase all data and download fresh"
+	@echo "  make data-check           # Check existing data, skip download if good"
+	@echo "  make data-analyze         # Detailed data quality analysis"
+	@echo "  make data-clean           # Remove all downloaded data"
+	@echo ""
+	@echo "Timeframe Downloads (2024 full year):"
+	@echo "  make data-2024-1m         # 1-minute data (~525k candles, ~2.5GB per pair)"
+	@echo "  make data-2024-5m         # 5-minute data (~105k candles, ~500MB per pair)"
+	@echo "  make data-2024-15m        # 15-minute data (~35k candles, ~175MB per pair)"
+	@echo "  make data-2024-1h         # 1-hour data (~8.7k candles, ~45MB per pair)"
+	@echo "  make data-2024-4h         # 4-hour data (~2.2k candles, ~11MB per pair)"
+	@echo "  make data-2024-1d         # Daily data (~365 candles, ~2MB per pair)"
+	@echo "  make data-range START=YYYYMMDD END=YYYYMMDD  # Custom date range"
+	@echo ""
 	@echo "  make agent-loop-5         # Run 5-cycle agent loop with SimpleAlwaysBuySell"
 	@echo "  make agent-loop-1         # Run single agent loop for quick test"
 	@echo "  make local-learn-loop     # Fully local, self-updating, learning agent loop"

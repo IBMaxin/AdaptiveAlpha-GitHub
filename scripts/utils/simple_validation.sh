@@ -93,6 +93,7 @@ PYTHONPATH=src python src/agents/trading/self_loop_agent_fixed.py \
     --timerange "$TRAIN_RANGE" \
     --max-loops 3 \
     --export-trades \
+    --data-check \
     --spec "Optimize guaranteed-to-trade strategy for available data period $TRAIN_RANGE. This strategy ALWAYS generates trades through multiple entry/exit conditions. Focus on parameter tuning for consistent profitability." \
     > "$RESULTS_DIR/training_log.txt" 2>&1
 

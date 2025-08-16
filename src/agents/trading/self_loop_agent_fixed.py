@@ -239,11 +239,61 @@ def _mutate_strategy(min_roi_0: float, stoploss: float) -> None:
     txt = re.sub(r"stoploss\s*=\s*[-]?\d+\.\d+", f"stoploss = {stoploss:.2f}", txt)
     STRATEGY_FILE.write_text(txt, encoding="utf-8")
 
-def _download_data(freqtrade_bin: str, config: str, timeframe: str, verbosity: int = 0) -> None:
+def _download_data(freqtrade_bin: str, config: str, timeframe: str, verbosity: int = 0, data_mode: str = "append") -> None:
+    """
+    Download data with smart management options.
+    
+    Args:
+        data_mode: "append" (add new data), "erase" (delete and redownload), "check" (verify only)
+    """
+    data_dir = Path("user_data/data")
+    
+    if data_mode == "erase":
+        print(f"[DATA] Erasing existing data directory: {data_dir}")
+        if data_dir.exists():
+            import shutil
+            shutil.rmtree(data_dir)
+        print(f"[DATA] Data directory cleared - will download fresh data")
+    elif data_mode == "check":
+        print(f"[DATA] Checking existing data...")
+        if data_dir.exists():
+            data_files = list(data_dir.rglob("*.json"))
+            if data_files:
+                print(f"[DATA] Found {len(data_files)} existing data files:")
+                for f in data_files[:5]:  # Show first 5
+                    size_mb = f.stat().st_size / (1024 * 1024)
+                    print(f"  - {f.name} ({size_mb:.1f} MB)")
+                if len(data_files) > 5:
+                    print(f"  ... and {len(data_files) - 5} more files")
+                print(f"[DATA] Skipping download - using existing data")
+                return
+            else:
+                print(f"[DATA] No data files found - proceeding with download")
+        else:
+            print(f"[DATA] No data directory found - proceeding with download")
+    else:  # append mode
+        print(f"[DATA] Append mode - will update existing data or download if missing")
+    
     cmd = [freqtrade_bin, "download-data", "-c", config, "-t", timeframe]
     if verbosity >= 1:
         cmd.append("-v")
-    subprocess.run(cmd, check=False)
+    
+    print(f"[DATA] Running: {' '.join(cmd)}")
+    try:
+        result = subprocess.run(cmd, check=False, capture_output=True, text=True, encoding="utf-8")
+        if result.returncode == 0:
+            print(f"[DATA] ✓ Data download completed successfully")
+            # Show brief summary
+            lines = result.stdout.split('\n')
+            summary_lines = [line for line in lines if 'Downloaded' in line or 'pairs' in line]
+            if summary_lines:
+                print(f"[DATA] {summary_lines[-1] if summary_lines else 'Data ready'}")
+        else:
+            print(f"[DATA] ⚠️  Data download had issues (exit code: {result.returncode})")
+            print(f"[DATA] stdout: {result.stdout[-500:]}")
+            print(f"[DATA] stderr: {result.stderr[-500:]}")
+    except Exception as e:
+        print(f"[DATA] ✗ Data download failed: {e}")
 
 def _backtest(freqtrade_bin: str, config: str, strategy: str, timeframe: str, timerange: str, verbosity: int = 0, export_trades: bool = False) -> bool:
     cmd = [
@@ -287,7 +337,7 @@ def _backtest(freqtrade_bin: str, config: str, strategy: str, timeframe: str, ti
         return False
 
 def main(argv: Optional[list[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="self loop agent")
+    parser = argparse.ArgumentParser(description="self loop agent with smart data management")
     parser.add_argument("--config", default="user_data/config.json")
     parser.add_argument("--max-loops", type=int, default=5)
     parser.add_argument("--spec", default=DEFAULT_PROMPT)
@@ -297,10 +347,33 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser.add_argument("--export-trades", action="store_true", default=True)
     parser.add_argument("--disable-memory", action="store_true", default=False)  # Default to enabled
     
+    # Data management options
+    data_group = parser.add_mutually_exclusive_group()
+    data_group.add_argument("--data-append", action="store_true", default=True, 
+                           help="Append new data to existing (default)")
+    data_group.add_argument("--data-erase", action="store_true", 
+                           help="Erase existing data and download fresh")
+    data_group.add_argument("--data-check", action="store_true", 
+                           help="Check existing data, skip download if present")
+    parser.add_argument("--skip-download", action="store_true", 
+                       help="Skip data download entirely (use existing data)")
+    
     args = parser.parse_args(argv)
     freqtrade_bin = _detect_freqtrade()
     _ensure_strategy_exists()
-    _download_data(freqtrade_bin, args.config, args.timeframe, args.verbose)
+    
+    # Determine data mode
+    if args.skip_download:
+        print("[DATA] Skipping data download - using existing data only")
+    else:
+        data_mode = "append"
+        if args.data_erase:
+            data_mode = "erase"
+        elif args.data_check:
+            data_mode = "check"
+        
+        print(f"[DATA] Data management mode: {data_mode}")
+        _download_data(freqtrade_bin, args.config, args.timeframe, args.verbose, data_mode)
     
     if not args.disable_memory:
         mcp = MCPMemoryClient()
